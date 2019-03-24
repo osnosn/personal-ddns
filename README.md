@@ -3,7 +3,7 @@
 Use bind &amp; php &amp; mysql , create a personal-ddns , update by an URL. Only support "A","AAAA","TXT" recorder.  
 
 #### 条件
-- 首先，需要一个有管理全的域名。
+- 首先，需要一个有管理权的域名。
 - 其次，需要一个有固定IP的服务器。
 
 #### 设置域名 (需域名管理权)
