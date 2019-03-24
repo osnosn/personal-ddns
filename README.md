@@ -1,6 +1,6 @@
 ## 个人动态域名系统。Personal-DDNS.
-使用 bind9 &amp; php &amp; mysql , 创建个人的动态域名系统。  
-Use bind &amp; php &amp; mysql , create a personal-ddns , update by an URL. Only support "A","AAAA","TXT" recorder.  
+使用 bind9 + php + mysql , 创建个人的动态域名系统。  
+Use bind + php + mysql , create a personal ddns server, update by an URL. Only support "A","AAAA","TXT" recorder.  
 
 #### 条件
 - 首先，需要一个有管理权的域名。
