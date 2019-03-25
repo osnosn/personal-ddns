@@ -89,10 +89,9 @@ Use bind9 + php + mysql , create a personal ddns server, update by an URL. Only 
   `wget http://www.mydomain.net/ddns/ddns.php?key=xxxxxxxxx&domain=dddd&ip=FC00:0:130F::9C0:876A:130B`  
    建议每10-15分钟访问一次更新链接。超过60分钟未更新,对应域名重置为"127.0.0.1" 或 "::1"   
     > 比如动态域名为 `abc.ddns.mydomain.net` 其中 `domain=dddd` 可以写为:  
-    >>  `domain=abc`  
-    >>  `domain=abc.ddns.mydomain.net`  
+    >>  `domain=abc` or `domain=abc.ddns.mydomain.net`  
 
-    >  其中 `xxxxxxxxx` 是创建动态域名时，生成的对应key。
+    >  其中 `key=xxxxxxxxx` 是创建动态域名时，生成的对应key。
 
 - 如果是 TXT 记录   
   - 强制指定TXT内容  
