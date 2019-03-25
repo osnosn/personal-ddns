@@ -13,7 +13,7 @@ Use bind9 + php + mysql , create a personal ddns server, update by an URL. Only 
    -  比如你拥有的域名是 "mydomain.net"
       - 设二级域名 `dns.mydomain.net`
       - 你可以用类似 `abc.ddns.mydoman.net` , `xxx.ddns.mydoman.net` 作为你的动态域名。
-   -  比如你的IP是"1.1.1.1"   
+   -  比如你的服务器IP是"1.1.1.1"   
    -  在域名商的解析系统中增加这两条记录。
    > ```
    >  ddns.mydomain.net  A  1.1.1.1 
@@ -31,10 +31,11 @@ Use bind9 + php + mysql , create a personal ddns server, update by an URL. Only 
    > listen-on port 53 { 127.0.0.1; any; };
    > listen-on-v6 port 53 { ::1; any; };
    > allow-query { localhost; any; };
-   > recursion no; /* 关闭了所有的axfr,如要allow-recursion生效,必须为yes */
+   > recursion no;
    > allow-recursion { localhost; };
    > allow-transfer { localhost; };
    > };
+   > include "/etc/named.rfc1912.zones";
    > ```
    >  以上条目，原来有的保留。不相同的就修改。原来没有的就添加。
    - 修改/etc/named.rfc1912.zones , 在最后加上:
@@ -66,8 +67,8 @@ Use bind9 + php + mysql , create a personal ddns server, update by an URL. Only 
      `service   named-chroot   start;`  
      `systemctl   enable   named-chroot;`  
    - 检查防火墙开放了 udp/53 的访问。   
-     `iptables   -A   INPUT   -p  udp   –dport  53   -j  ACCEPT   #一般查询用 `   
-     `iptables   -A   INPUT   -p  tcp   –dport  53   -j  ACCEPT    # axfr 用`   
+     `iptables   -A   INPUT   -p  udp   –dport  53   -j  ACCEPT   #一般查询用`   
+     `iptables   -A   INPUT   -p  tcp   –dport  53   -j  ACCEPT   # axfr 用`   
    
 #### 其他设置 (无需root权限。但需要用户权限，设置crontab)
 - 看文件 [ddns/readme.php](ddns/readme.php)  
