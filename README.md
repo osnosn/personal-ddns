@@ -2,7 +2,7 @@
 
 简单又实用的动态域名管理系统  
 使用 bind9 + php + mysql , 创建个人的动态域名系统。  
-Use bind + php + mysql , create a personal ddns server, update by an URL. Only support "A","AAAA","TXT" recorder.  
+Use bind9 + php + mysql , create a personal ddns server, update by an URL. Only support "A","AAAA","TXT" recorder.  
 
 #### 条件
 - 首先，需要一个有管理权的域名。
