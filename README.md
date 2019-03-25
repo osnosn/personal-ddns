@@ -1,4 +1,5 @@
-## 个人动态域名系统。Personal-DDNS.
+## [个人动态域名系统。Personal-DDNS.](https://github.com/osnosn/personal-ddns/)
+
 简单又实用的动态域名管理系统  
 使用 bind9 + php + mysql , 创建个人的动态域名系统。  
 Use bind + php + mysql , create a personal ddns server, update by an URL. Only support "A","AAAA","TXT" recorder.  
@@ -96,5 +97,5 @@ Use bind + php + mysql , create a personal ddns server, update by an URL. Only s
   - 强制指定TXT内容  
   `wget http://www.mydomain.net/ddns/ddns.php?key=xxxxxxxxx&domain=dddd&ip=20181015abcdefg`  
   
-write at 2019-02-24.   
+write at 2019-03-24.   
 --- end ---
