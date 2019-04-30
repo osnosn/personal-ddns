@@ -91,6 +91,8 @@ $chged=0;
 if( strcmp($ip,$oip)!=0 ) { // ip有变化
    // set chged=2, nsupdate 时,chged=chged-1, 防止没更新
    $chged=2;
+   // 如果两个域名 ddns.aaa.net,  ddns.bbb.me 公用数据,则改 $chged=4;
+   $chged=4;
    $stmt=$db->prepare('update ddns set time=now(),ip=:ip,changed=:chged where id=:id');
    $stmt->bindParam(':ip',$ip,PDO::PARAM_STR);
    $stmt->bindParam(':chged',$chged,PDO::PARAM_INT);

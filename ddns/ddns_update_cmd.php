@@ -182,7 +182,8 @@ function run_nsupdate($tmpfile) {
    return $ret_val;
 }
 function writeToTmpFile($s){
-        $tmp_file='/tmp/ddns_nsupdate_txt.tmp';
+        global $config_zone;
+	$tmp_file='/tmp/ddns_nsupdate_txt_'.$config_zone.'.tmp';
         $fp=fopen($tmp_file,'w');
         flock($fp,LOCK_EX);
         fputs($fp,$s);
