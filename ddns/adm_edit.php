@@ -88,8 +88,9 @@ if(isset($_POST['submit']) && $_POST['submit']=='Modify') {
          }
 
          // 是否有重复的domain
-         $stmt=$db->prepare('select id,domain from ddns where domain=:domain limit 1');
+         $stmt=$db->prepare('select id,domain from ddns where domain=:domain and rectype=:rectype limit 1');
          $stmt->bindParam(':domain',$domain,PDO::PARAM_STR);
+         $stmt->bindParam(':rectype',$hrectype,PDO::PARAM_INT);
          $stmt->execute();
          $data=$stmt->fetchAll();
          $stmt->closeCursor();
