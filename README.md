@@ -17,6 +17,7 @@ Use bind9 + php + mysql , create a personal ddns server, update by an URL. Only 
    -  在域名商的解析系统中增加这两条记录。(A记录的域名,要与子域"ddns"不同,这里用"ddns2")
    > ```
    >  ddns2.mydomain.net  A  1.1.1.1 
+   >  ddns2.mydomain.net  AAAA  24xx:xxxx:....    #如果有ipv6 
    >  ddns.mydomain.net   NS ddns2.mydomain.net.  
    > ```
 
