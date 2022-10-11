@@ -28,7 +28,7 @@ __halt_compiler();
       num tinyint default 5,           -- 此用户可以添加的记录数
       time timestamp default 0,        -- 更新时间
       domain char(16) not null,        -- 子域名
-      rectype tinyint default 1,       -- 记录类型 1=A,2=TXT,3=AAAA,
+      rectype tinyint default 1,       -- 记录类型 1=A,2=TXT,3=AAAA,4=CNAME,
       ip varchar(255) not null,        -- 记录内容
       changed tinyint default 0,       -- 记录是否改变过
       PRIMARY KEY (id),

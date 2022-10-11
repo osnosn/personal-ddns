@@ -103,7 +103,7 @@ if( isset($opts['u']) || isset($opts['update']) ) {
          $bip=$vv->ip;
          $bchged=$vv->changed;
          $nsupdate_txt.='update delete '.$bdomain.$config_dot_zone.' '.$brectype."\n";
-         if(strcmp($brectype,'TXT')==0) {
+         if(strcmp($brectype,'TXT')==0 || strcmp($brectype,'CNAME')==0) {
             $nsupdate_txt.='update add '.$bdomain.$config_dot_zone.' 60 '.$brectype.' '.$bip."\n";
          } else { // A 和 AAA 记录
             $nsupdate_txt.='update add '.$bdomain.$config_dot_zone.' 600 '.$brectype.' '.$bip."\n";

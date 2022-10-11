@@ -85,6 +85,8 @@ if($brectype==1) { // A记录
       // 检查ip格式
       $ip='::1';
    }
+} else if($brectype==4) {  // CNAME记录 
+   if(strlen($ip)>250) $ip=substr($ip,0,250);
 }
 
 $chged=0;

@@ -186,7 +186,7 @@ echo '<tr><td>type</td><td colspan=2><input type=hidden name=rectype value="'.$b
 echo '<tr><td>user</td><td colspan=2>'. $user    ."</td></tr>\n";
 echo '<tr><td>key</td><td colspan=2>'. $bkey    ."</td></tr>\n";
 echo '<tr><td>last update</td><td colspan=2>'. $btime   ."</td></tr>\n";
-echo '<tr><td>IP '.($brectype==2?'(TXT)':'').'</td><td>'. $bip     .'</td><td width="180px">'."\n";
+echo '<tr><td>IP '.($brectype==2?'(TXT)':'').($brectype==4?'(CNAME)':'').'</td><td>'. $bip     .'</td><td width="180px">'."\n";
 echo '删除这个域名';
 echo '<input type=checkbox name=deldomain value="DEL" style="font-size:12px">';
 echo '<input type=submit name=submit value="DEL" style="font-size:12px">';
@@ -216,6 +216,12 @@ if($brectype==1) {
    echo 'TXT的字符串内容写在ip参数中 , 如TXT指定为"20181015abcdefg"<br>';
    echo '&nbsp; &nbsp; ';
    echo 'http://'.$config_link.'/ddns.php?key='.$bkey.'&domain='.urlencode($bdomain).'&ip=20181015abcdefg';
+} else if($brectype==4) {
+   echo '指定内容更新: <br>';
+   echo '&nbsp; &nbsp; &nbsp; &nbsp; ';
+   echo 'CNAME的内容写在ip参数中 , 如CNAME指定为"abc.123.def.jk"<br>';
+   echo '&nbsp; &nbsp; ';
+   echo 'http://'.$config_link.'/ddns.php?key='.$bkey.'&domain='.urlencode($bdomain).'&ip=abc.123.def.jk';
 } else {
    echo '指定内容更新: <br>';
    echo '&nbsp; &nbsp; ';

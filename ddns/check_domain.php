@@ -1,5 +1,5 @@
 <?php
-function check_domain($domain,$type) {  // 1=A,2=TXT
+function check_domain($domain,$type) {  // 1=A,2=TXT,3=AAAA,4=CNAME
    // 检查域名前后不能有小数点,不能是连字符
    $domainLen=strlen($domain);
    if($domain{0}=='.' || $domain{$domainLen-1}=='.'
@@ -12,7 +12,7 @@ function check_domain($domain,$type) {  // 1=A,2=TXT
       if(preg_match('/^[0-9a-z_`~!@#$%^&*()\[\]{}|+=<>,?\/.-]+$/',$domain)<1) {
          return 'domain中字符不合法,添加失败. ';
       }
-   } else { // A或AAAA记录
+   } else { // A或AAAA或CNAME记录
       // 域名不能有非法字符
       if(preg_match('/^[0-9a-z.-]+$/',$domain)<1) {
          // 只能由'a-z0-9' 和 '-' 组成,不区分大小写

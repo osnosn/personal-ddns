@@ -142,7 +142,7 @@ if($bcount<$bnum) { // 没有超出域名限制数量
       $hrectype=1;
       if(isset($_POST['domain']))  $hdomain=trim($_POST['domain']);
       if(isset($_POST['rectype']))  $hrectype=intval($_POST['rectype']);
-      if($hrectype<1 or $hrectype>3) $hrectype=1;
+      if($hrectype<1 or $hrectype>4) $hrectype=1;
       do {
          if(strlen($hdomain)<1) {
             $errmsg='domain empty';
@@ -184,6 +184,8 @@ if($bcount<$bnum) { // 没有超出域名限制数量
                $hip='20180101txt_string';
             }else if ($hrectype==3) { // AAAA 记录
                $hip='::1';
+            }else if ($hrectype==4) { // CNAME 记录
+               $hip='test.test.';
             }else { // A 记录
                $hip='127.0.0.1';
             }
@@ -203,7 +205,7 @@ if($bcount<$bnum) { // 没有超出域名限制数量
    echo '</td><td>'."\n";
    echo '<input type=text name=domain size=8 style="text-align:right">'.$config_dot_zone;
    echo '</td><td>'."\n";
-   echo '<select name="rectype"><option value=1>A</option><option value=2>TXT</option><option value=3>AAAA</option></select>'."\n";
+   echo '<select name="rectype"><option value=1>A</option><option value=2>TXT</option><option value=3>AAAA</option><option value=4>CNAME</option></select>'."\n";
    echo '</td><td>'."\n";
    echo '<input type=submit name=submit value="Add">';
    echo '</td></tr>'."\n";
@@ -351,11 +353,11 @@ exit;
 
 function mylog($s){
    global $log_file;
-        $fp=fopen($log_file,'a');
-        flock($fp,LOCK_EX);
-        fputs($fp,date('Y-m-d.H:i:s ').$_SERVER['REMOTE_ADDR'].' adm:');
-        fputs($fp,$s);
-        fputs($fp,"\n");
-        flock($fp,LOCK_UN);
-        fclose($fp);
+   $fp=fopen($log_file,'a');
+   flock($fp,LOCK_EX);
+   fputs($fp,date('Y-m-d.H:i:s ').$_SERVER['REMOTE_ADDR'].' adm:');
+   fputs($fp,$s);
+   fputs($fp,"\n");
+   flock($fp,LOCK_UN);
+   fclose($fp);
 }
