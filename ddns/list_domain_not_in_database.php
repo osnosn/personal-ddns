@@ -32,7 +32,7 @@ if( $doList ) {
    if($axfr[0]==0) {
       foreach($axfr[1] as $v) {
          if(strlen($v)<2) continue; // 跳过空行
-         if($v{0}==';') continue;   // 跳过注释
+         if($v[0]==';') continue;   // 跳过注释
          if(strpos($v,$config_zone.".\t")===0) continue;
          if(strpos($v,$config_zone.'. ')===0) continue;
          $domains[]=$v;

@@ -2,7 +2,7 @@
 function check_domain($domain,$type) {  // 1=A,2=TXT,3=AAAA,4=CNAME
    // 检查域名前后不能有小数点,不能是连字符
    $domainLen=strlen($domain);
-   if($domain{0}=='.' || $domain{$domainLen-1}=='.'
+   if($domain[0]=='.' || $domain{$domainLen-1}=='.'
          || strpos($domain,'..')!==false
          || $domainLen>16 ) {
       // domain 长度不超过63,因数据库字段限制,所以限制16
@@ -20,7 +20,7 @@ function check_domain($domain,$type) {  // 1=A,2=TXT,3=AAAA,4=CNAME
       }
    }
    if(strpos($domain,'.-')!==false || strpos($domain,'-.')!==false
-         || $domain{0}=='-' || $domain{$domainLen-1}=='-' ) {
+         || $domain[0]=='-' || $domain{$domainLen-1}=='-' ) {
       // 减号 不能在任意一段的头或者尾
       return 'domain不合法,连字符位置错误,修改失败. ';
    }
