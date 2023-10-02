@@ -210,6 +210,18 @@ if($brectype==1) {
    echo '更新间隔: <br>';
    echo '&nbsp; &nbsp; ';
    echo '建议每6分钟-20分钟更新一次(访问一次更新链接)。超过60分钟未更新,对应的域名会被重置为127.0.0.1';
+} else if($brectype==3) {
+   echo '自动ip更新: <br>';
+   echo '&nbsp; &nbsp; ';
+   echo 'http://'.$config_link.'/ddns.php?key='.$bkey.'&domain='.urlencode($bdomain);
+   echo "<br>\n";
+   echo '指定ip更新: <br>';
+   echo '&nbsp; &nbsp; ';
+   echo 'http://'.$config_link.'/ddns.php?key='.$bkey.'&domain='.urlencode($bdomain).'&ip=2001::1234';
+   echo '<br>';
+   echo '更新间隔: <br>';
+   echo '&nbsp; &nbsp; ';
+   echo '建议每6分钟-20分钟更新一次(访问一次更新链接)。超过60分钟未更新,对应的域名会被重置为 ::1';
 } else if($brectype==2) {
    echo '指定内容更新: <br>';
    echo '&nbsp; &nbsp; &nbsp; &nbsp; ';
@@ -226,6 +238,21 @@ if($brectype==1) {
    echo '指定内容更新: <br>';
    echo '&nbsp; &nbsp; ';
    echo 'http://'.$config_link.'/ddns.php?key='.$bkey.'&domain='.urlencode($bdomain).'&ip=othermsgxxxxxxxxx';
+}
+if($brectype==1 || $brectype==3) {  //A or AAAA
+   echo '<br><br>';
+   echo 'OpenWRT luci-app-ddns:<br>';
+   echo '&emsp; DDNS Service provider 选择 "-- custom --" 自定义 <br>';
+   echo '&emsp; Custom update-URL: <br> &emsp; ';
+   echo '&emsp; http://'.$config_link.'/ddns.php?key=[PASSWORD]&domain=[DOMAIN]&ip=[IP] <br>';
+   echo '&emsp; Custom update-script: &emsp; empty,留空,不填 <br>';
+   echo '&emsp; Domain: '.$bdomain.'<br>';
+   echo '&emsp; UserName: 非空, 随便写。如填: "none"'.'<br>';
+   echo '&emsp; Password: '.$bkey.'<br>';
+   echo '&emsp; Timer Settings -> Check Interval: 10min,<br>';
+   echo '&emsp; &emsp; Force Interval: 40min, <br>';
+   echo '&emsp; &emsp; Error Retry Counter: 0,<br>';
+   echo '&emsp; &emsp; Error Retry Interval: 60sec(default) <br>';
 }
 ?>
 <br><br>

@@ -94,6 +94,18 @@ Use bind9 + php + mysql , create a personal ddns server, update by an URL. Only 
 
     >  其中 `key=xxxxxxxxx` 是创建动态域名时，生成的对应key。
 
+   - OpenWRT luci-app-ddns:  
+     - DDNS Service provider 选择 "-- custom --" 自定义  
+     - Custom update-URL: `http://www.mydomain.net/ddns.php?key=[PASSWORD]&domain=[DOMAIN]&ip=[IP]`   
+     - Custom update-script:  `empty,留空,不填`  
+     - Domain: 可以有后缀，也可以没有后缀。  
+     - UserName: 非空, 随便写。如填: "none"  
+     - Password: xxxxxxxxx(key)  
+     - Timer Settings -&gt; Check Interval: 10min,  
+       &emsp; Force Interval: 40min,  
+       &emsp; Error Retry Counter: 0,  
+       &emsp; Error Retry Interval: 60sec(default)  
+
 - 如果是 TXT 记录   
   - 强制指定TXT内容  
   `wget http://www.mydomain.net/ddns/ddns.php?key=xxxxxxxxx&domain=dddd&ip=20181015abcdefg`  

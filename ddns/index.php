@@ -48,6 +48,36 @@ http://<?=$config_link?>/ddns.php?key=xxxxxxxxx&domain=my
 http://<?=$config_link?>/ddns.php?key=xxxxxxxxx&domain=my.ddns.xxxx.xxx
 </dd>
 
+<dt>
+<br>
+OpenWRT luci-app-ddns:
+</dt>
+<dd>
+DDNS Service provider 选择 "-- custom --" 自定义
+</dd>
+<dd>
+Custom update-URL: <br> &nbsp; &nbsp;  
+http://<?=$config_link?>/ddns.php?key=[PASSWORD]&domain=[DOMAIN]&ip=[IP]
+</dd>
+<dd>
+Custom update-script: <br> &nbsp; &nbsp;  empty,留空,不填
+</dd>
+<dd>
+Domain: 可以有后缀，也可以没有后缀。
+</dd>
+<dd>
+UserName: 非空, 随便写。如填: "none"
+</dd>
+<dd>
+Password: xxxxxxxxx(key)
+</dd>
+<dd>
+Timer Settings -&gt; Check Interval: 10min,<br>
+&emsp; Force Interval: 40min, <br>
+&emsp; Error Retry Counter: 0,<br>
+&emsp; Error Retry Interval: 60sec(default) <br>
+</dd>
+
 </dl>
 <br><br>---end---<br><br>
 </body>
