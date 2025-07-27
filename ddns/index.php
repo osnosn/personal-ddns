@@ -32,6 +32,9 @@ http://<?=$config_link?>/ddns.php?key=xxxxxxxxx&domain=dddd&ip=1.1.1.1
 <dt>
 &nbsp;&nbsp;
 建议每10-15分钟访问一次更新链接。超过60分钟未更新,对应域名重置为127.0.0.1
+<br>
+&nbsp;&nbsp;
+每个记录(A,AAAA,TXT,CNAME)的key是不同的。
 </dt>
 <dt>
 <br>
