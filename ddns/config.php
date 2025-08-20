@@ -8,5 +8,5 @@ $log_file='/var/www/html/ddns/log.ddns.php';
 // =========== do not modify below line ==============
 
 $config_dot_zone='.'.$config_zone;
-date_default_timezone_set('PRC');
+date_default_timezone_set('Asia/Shanghai');
 
